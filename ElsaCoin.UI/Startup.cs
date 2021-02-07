@@ -1,5 +1,6 @@
 using ElsaCoin.UI.Data;
 using ElsaCoin.UI.Models;
+using ElsaCoin.UI.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,6 +37,9 @@ namespace ElsaCoin.UI
                     options.Password.RequireLowercase = false;
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped<IBlockchainService, BlockchainService>();
+            services.AddScoped<ITransactionService, TransactionService>();
 
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();

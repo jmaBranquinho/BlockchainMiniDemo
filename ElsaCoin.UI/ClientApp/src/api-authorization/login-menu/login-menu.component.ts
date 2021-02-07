@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorizeService } from '../authorize.service';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { AuthorizeService } from '../authorize.service';
 
 @Component({
   selector: 'app-login-menu',
@@ -17,5 +17,9 @@ export class LoginMenuComponent implements OnInit {
   ngOnInit() {
     this.isAuthenticated = this.authorizeService.isAuthenticated();
     this.userName = this.authorizeService.getUser().pipe(map(u => u && u.name));
+  }
+
+  capitalize(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 }

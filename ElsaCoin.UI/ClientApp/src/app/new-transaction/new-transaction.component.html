@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Create new transaction</h1>
+    <div class="form-group">
+        <label for="fromAddress">From address</label>
+        <input class="form-control" disabled type="text" [value]="address">
+    </div>
+    <div class="form-group">
+        <label for="toddress">To address</label>
+        <input class="form-control" type="text" [ngModel]="toAddress">
+    </div>
+    <div class="form-group">
+        <label for="amount">amount</label>
+        <input class="form-control" type="number" [ngModel]="amount">
+    </div>
+    <button type="button" class="btn btn-outline-primary float-right" (click)="createTransaction()">Create transaction</button>
+</div>
